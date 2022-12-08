@@ -1,0 +1,6 @@
+.theme-container {
+    padding: 40px;
+    @media (max-width: $screen-sm) {
+      padding: 20px;
+    }
+}

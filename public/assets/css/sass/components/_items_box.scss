@@ -1,0 +1,164 @@
+.items-box {
+    margin-bottom: 20px;
+    
+    .head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        
+        @media (max-width: $screen-sm) {
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .title {
+            font-weight: 500;
+            font-size: 16px;
+            color: #0c1b48;
+        }
+    }
+    
+    .items-area {
+        border-radius: 5px;
+        border: 1px solid #dbdbe5;
+        max-height: 500px;
+        overflow: auto;
+        .empty-state {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 240px;
+            padding: 20px;
+
+            img {
+                width: 92px;
+                margin-bottom: 17px;
+            }
+            .title {
+                font-size: 16px;
+                line-height: 24px;
+                text-align: center;
+                color: #858ca3;
+            }
+        }
+    }
+    .single-list-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #dbdbe5;
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            .title {
+                font-weight: 500;
+                font-size: 14px;
+                color: #0c1b48;
+            }
+            .muted-title {
+                font-size: 14px;
+                color: $gray;
+                @include dir-margin-left(17px);
+            }
+        }
+        .right {
+            display: flex;
+            align-items: center;
+            .title {
+                font-weight: 500;
+                font-size: 14px;
+                color: #0c1b48;
+                margin: 0 10px;
+            }
+            .delete-item {
+                color: #858ca3;
+            }
+        }
+    }
+    .list-item {
+        padding: 0 20px;
+        
+        &:not(:last-child) {
+            .item-head {
+                border-bottom: 1px solid #dbdbe5;
+            }
+        }
+        
+        .item-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+
+            .left {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                i {
+                    color: #4353ff;
+                    @include dir-margin-right(5px);
+                    transition: .3s;
+                }
+                .title {
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: #4353ff;
+                }
+            }
+            .right {
+                display: flex;
+                align-items: center;
+                .title {
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: #0c1b48;
+                    margin: 0 10px;
+                }
+                .delete-item {
+                    color: #858ca3;
+                }
+            }
+            &.active {
+                .left i {
+                    transform: rotate(90deg) !important
+                }
+            }
+        }
+
+        .item-body {
+            @include dir-padding-left(40px);
+            padding-top: 5px;
+            display: none;
+
+            .sub-item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 12px 0;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid #dbdbe5;
+                }
+                .title {
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: #0c1b48;
+                }
+                .price {
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: #0c1b48;
+                }
+            }
+        }
+    }
+}

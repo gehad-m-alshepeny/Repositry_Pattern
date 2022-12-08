@@ -1,0 +1,132 @@
+.text-xl {
+    font-size: 28px !important;
+}
+.text-lg {
+    font-size: 22px !important;
+}
+.text-md {
+    font-size: 16px !important;
+}
+.text-sm {
+    font-size: 14px !important;
+}
+.text-xs {
+    font-size: 13px !important;
+}
+.text-xxs {
+    font-size: 12px !important;
+}
+
+.page-head {
+    margin-bottom: 20px;
+    position: relative;
+
+    &.page-head-inner {
+        margin-top: 40px;
+        .title {
+            margin-bottom: 3px;
+        }
+    }
+    &.list-head {
+        @media (max-width: $screen-sm) {
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
+           .title {
+                margin-bottom: 0;
+                .responsive-tooltip {
+                    font-size: 18px;
+                }
+           }
+           .btns {
+            margin-top: 0;
+           }
+        }
+    }
+    
+    .back {
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        text-align: left;
+        color: #858ca3;
+        margin-bottom: 9px;
+
+        &::before {
+            content: "\f104";
+            font-weight: bold;
+            display: block;
+            @include dir-margin-right(16px);
+            #{$rtl} & {
+                transform: rotate(180deg);
+            }
+            color: #0c1b48;
+        }
+    }
+    .title {
+        font-weight: bold;
+        font-size: 16px;
+        color: #0c1b48; 
+        margin-bottom: 11px;
+        &.lg {
+            font-size: 28px;
+            @media (max-width: $screen-sm) {
+               font-size: 22px;
+            }
+        }      
+    }
+    .subtitle {
+        font-size: 14px;
+        line-height: 20px;
+        color: #858ca3;
+        margin-bottom: 10px;
+    }
+    .guide {
+        text-decoration: underline !important;
+        font-size: 13px;
+        line-height: 20px;
+        color: #2b5af6;
+    }
+
+    .btns {
+        position: absolute;
+        top: 0;
+        @include dir-right(0);
+        display: flex;
+        align-items: center;
+        @media (max-width: $screen-sm) {
+          position: static;
+          margin-top: 10px;
+        }
+    }
+}
+
+.section-title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #0c1b48;
+    margin-bottom: 12px;
+}
+
+.underline {
+    text-decoration: underline !important;
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+.info-url {
+    font-weight: 500;
+    font-size: 12px;
+    margin-bottom: 15px;
+    color: #858ca3;
+    .url {
+        color: #ed0000;
+        text-decoration: underline;
+    }
+}
+
+.pointer {
+    cursor: pointer !important;
+}

@@ -1,0 +1,174 @@
+
+*{
+    border: 0;
+    outline: 0;
+	box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+  font-size: 1rem;
+}
+
+@font-face {
+    font-family: 'font';
+    src: url('../fonts/theme-fonts/roboto-regular.ttf');
+    font-display: swap;
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'font';
+    src: url('../fonts/theme-fonts/roboto-medium.ttf');
+    font-display: swap;
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'font', 'ar-font', "Font Awesome 5 Free";
+    src: url('../fonts/theme-fonts/roboto-bold.ttf');
+    font-display: swap;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'ar-font';
+    src: url('../fonts/theme-fonts/tajawal-regular.ttf');
+    font-display: swap;
+    unicode-range: U+0600-06ff;
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'ar-font';
+    src: url('../fonts/theme-fonts/tajawal-medium.ttf');
+    font-display: swap;
+    unicode-range: U+0600-06ff;
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'ar-font';
+    src: url('../fonts/theme-fonts/tajawal-bold.ttf');
+    font-display: swap;
+    unicode-range: U+0600-06ff;
+    font-weight: 700;
+}
+
+// @font-face {
+//     font-family: 'NunitoSans';
+//     src: url('../fonts/Almarai-Regular.ttf');
+//     font-display: swap;
+//     unicode-range: U+0600-06ff;
+// }
+
+body {
+    font-family: 'font', 'ar-font', "Font Awesome 5 Free";
+    overflow-x: hidden;
+    font-size: 1rem;
+    margin: 0 auto;
+    color: #000;
+    line-height: 1.5;
+    #{$ltr} & {
+        direction: ltr; 
+        text-align: left;
+    }
+    #{$rtl} & {
+        direction: rtl; 
+        text-align: right;
+    }
+}
+
+.page-wrapper {
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+p {
+  color: #000;
+  margin: 0;
+  font-size: 1rem;
+}
+input:focus::placeholder
+{
+    color: transparent;
+}
+*::placeholder
+{
+    color: #444;
+    transition: all .3s ease
+}
+form
+{
+    padding: 0;
+    margin: 0 auto;
+    text-align: start;
+	width: 100%;
+}
+
+a {
+    text-decoration: none !important; 
+}
+.owl-carousel 
+{
+    touch-action: manipulation; 
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+  margin: 0; 
+}
+button,
+input[type="submit"]
+{
+    cursor: pointer;
+    text-align: start;
+}
+button,
+a {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+select:focus,
+button:focus,
+input:focus
+{
+    outline: 0;
+}
+
+label {
+    margin: 0;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    outline: none;
+}
+/* owl carousel*/
+
+.owl-carousel .owl-stage, .owl-carousel.owl-drag .owl-item{
+    -ms-touch-action: auto;
+        touch-action: auto;
+}
+/* owl carousel*/
+
+@media(min-width: $screen-xx) {
+    .container {
+        max-width: 1360px;
+    }
+}

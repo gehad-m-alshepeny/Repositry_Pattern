@@ -1,0 +1,5 @@
+.rotate-ar {
+    #{$rtl} & {
+      transform: rotate(180deg);
+    }
+}

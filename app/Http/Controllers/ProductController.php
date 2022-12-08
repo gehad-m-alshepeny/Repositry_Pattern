@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
+use App\Models\Category;
+use App\Http\Requests\ProductRequest;
 use App\Repository\Product\ProductRepository;
+use App\Http\Resources\ProductResource;
 use App\Utils\Response;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -25,11 +27,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = $this->productRepository->get();
-        if (!$products->isEmpty()){
-            return $this->responseDataCount($products);
-        }
-        return $this->responseDataNotFound('Data NotFound');
+        return view("products.index");
+    }
+
+    public function all(Request $request)
+    {   
+      return $this->productRepository->all($request);
     }
 
     /**
@@ -37,31 +40,21 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+   public function create()
+   {  
+       $categories = Category::pluck("name", "id")->toArray();
+       return view("products.form", \compact('categories'));
+   }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreProductRequest  $request
+     * @param  \App\Http\Requests\ProductRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductRequest $request)
+    public function store(ProductRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        //
+        return $this->productRepository->store($request);
     }
 
     /**
@@ -93,8 +86,8 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Request $request)
     {
-        //
+        return $this->productRepository->destroy($request);
     }
 }

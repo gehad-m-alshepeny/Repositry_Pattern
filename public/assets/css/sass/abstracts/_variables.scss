@@ -1,0 +1,48 @@
+$ltr: 'html[lang="en"]';
+$rtl: 'html[lang="ar"]';
+$theme-light: ".light-theme";
+$theme-dark: ".dark-theme";
+/*********************************************************
+  // global color variables
+**********************************************************/
+
+// colors
+$blue: #4353FF;
+$blue_light: #F9FAFF;
+$blue_dark: #0C1B48;
+$dark: #374957;
+$gray: #858CA3;
+$gray_light: #DBDBE6;
+$red: #ED0000;
+$green: #62BC65;
+
+
+/*********************************************************
+  // Font variables
+**********************************************************/
+
+$font-normal: 'HSDream-Light', sans-serif, 'Font Awesome 5 Free';
+
+
+/*********************************************************
+  // spacing variables
+**********************************************************/
+// these variable/s is still not applied on all elements
+
+$space-between: 20px;
+$spacer: 10px;
+
+/*********************************************************
+  // screens
+**********************************************************/
+$screen-xxl: 1720px;
+$screen-xll: 1600px;
+$screen-xx: 1440px;
+$screen-xl: 1280px;
+$screen-xlg: 1024px;
+$screen-lg: 992px;
+$screen-md: 768px;
+$screen-sm: 576px;
+$screen-xs: 425px;
+$screen-xss: 375px;
+$screen-xxs: 320px;

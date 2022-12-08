@@ -1,0 +1,197 @@
+.custom-form-modal {
+    .modal-content {
+        padding: 25px;
+    }
+    .modal-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        .title {
+            font-weight: bold;
+            font-size: 16px;
+            color: #0c1b48;
+        }
+        .close-modal {
+            font-size: 20px;
+            color: #858ca3;
+        }
+    }
+    .modal-hint {
+        font-size: 12px;
+        color: #858ca3;
+        margin-bottom: 15px;
+    }
+    .btns {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.insert-list-modal {
+    .selected-list {
+        border-bottom: 1px solid #DFE2E6;
+        .head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 15px;
+            cursor: pointer;
+
+            &.active .title i {
+                transform: rotate(90deg);
+            }
+            .title {
+                display: flex;
+                align-items: center;
+                font-weight: 500;
+                font-size: 14px;
+                color: #4353ff;
+                i {
+                    font-size: 16px;
+                    @include dir-margin-right(5px);
+                    transition: .3s;
+                }
+            }
+            .val {
+                font-size: 14px;
+                color: #858ca3;
+            }
+        }
+        .body {
+            @include dir-padding-left(15px);
+            display: none;
+
+            .selected-item-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 15px 0;
+                &:not(:last-child) {
+                    border-bottom: 1px solid #DBDBE5;
+                }
+
+                .title {
+                    font-size: 14px;
+                    color: #0c1b48;
+                }
+                i {
+                    color: #858CA3;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .search-list {
+        margin-bottom: 38px;
+        max-height: 260px;
+        overflow: auto;
+
+        .item-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #DFE2E6;
+            .val {
+                font-weight: 500;
+                font-size: 14px;
+                color: #0c1b48;
+            }
+        }
+    }
+
+    .empty {
+        text-align: center;
+        margin-top: 40px;
+        img {
+            margin-bottom: 15px;
+        }
+        .title {
+            font-size: 16px;
+            line-height: 24px;
+            color: #858ca3;
+            margin-bottom: 25px;
+        }
+    }
+}
+.confirm-modal {
+    .modal-dialog {
+        max-width: 400px;
+        .modal-content {
+            padding: 20px 25px;
+            border-radius: 8px;
+            filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.16));
+        }
+    }
+    .modal-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 11px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #dbdbe4;
+
+        .title {
+            font-weight: bold;
+            font-size: 16px;
+            text-align: left;
+            color: #0c1b48;                
+        }
+        .close-modal {
+            font-size: 20px;
+            color: #858ca3;
+        }
+    }
+    .desc {
+        font-size: 14px;
+        line-height: 24px;
+        text-align: start;
+        color: #0c1b48;
+        margin-bottom: 20px;
+        .bold {
+            font-weight: bold;
+        }        
+    }
+
+    .btns {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}
+
+.order-notification-modal {
+    .modal-dialog {
+        max-width: 400px;
+    }
+    .modal-content {
+        padding: 23px 22px;
+    }
+    .modal-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .close-modal {
+            font-size: 20px;
+            color: #858ca3;
+            cursor: pointer;
+        }
+    }
+
+    .empty {
+        text-align: center;
+        img {
+            width: 92px;
+            margin-bottom: 15px;
+        }
+        .title {
+            font-weight: bold;
+            font-size: 16px;
+            color: #0c1b48;
+            margin-bottom: 18px;
+        }
+    }
+}

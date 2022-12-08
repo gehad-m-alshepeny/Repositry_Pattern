@@ -1,0 +1,49 @@
+#toast-container {
+    @include dir-right(15px !important);
+    @include dir-left(auto !important);
+    .toast {
+        background-image: none !important;
+        padding: 8px 15px;
+        @include dir-padding-left(53px);
+        font-size: 14px;
+        line-height: 17px;
+        &.toast-message {
+            font-weight: 500;
+        }
+        &::before {
+            position: absolute;
+            top: 50%;
+            @include dir-left(15px);
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #FFF;
+            font-weight: bold;
+            @include dir-margin-right(11px);
+        } 
+        &::after {
+            content: "\f00d";
+            position: absolute;
+            @include dir-right(10px);
+            top: 10px;
+            font-weight: 600;
+            color: #0c1b48;
+        }
+        &.toast-error {
+            background-color: #FCEAE9;
+            color: #ed0000;
+            &::before {
+                content: "\f071";
+                color: #ed0000;
+            }
+        }
+        &.toast-success {
+            background-color: #f1f7ef;
+            color: #63bb64;
+            &::before {
+                content: "\f058";
+                color: #63bb64;
+            }
+        }
+    }
+
+}

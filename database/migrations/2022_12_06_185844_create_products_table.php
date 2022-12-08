@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name', 150);
             $table->text('description')->nullable();
+            $table->unsignedBigInteger('category_id')->index("products_category_id_foreign");
+            $table->text('tags')->nullable();
+            $table->string("image", 255)->nullable();
             $table->boolean('status')->default(false);
             $table->timestamps();
         });

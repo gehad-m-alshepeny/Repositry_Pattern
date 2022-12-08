@@ -1,0 +1,64 @@
+.badges {
+    padding: 4px 15px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 12px;
+
+    &.badges-success {
+        background: #f4fffc;
+        border: 1px solid #098468;
+        color: #098468;
+    }
+    &.badges-danger {
+        background: #ffd4d6;
+        color: #ed0000;
+    }
+    &.badges-hint {
+        background: transparent;
+        color: #898D99;
+    }
+}
+
+.badge-icon {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 18px;
+    &.mr {
+        @include dir-margin-right(10px);
+    }
+    &.ml {
+        @include dir-margin-left(10px);
+    }
+    &.badge-icon-danger {
+        color: #ed0000;
+        background-color: rgba(237, 0, 0, 0.1);
+    }
+    &.badge-icon-success {
+        color: #62BC65;
+        background-color: rgba(98, 188, 101, 0.1);
+    }
+    &.badge-icon-secondary {
+        color: #858CA3;
+        background-color: rgba(219, 219, 229, 0.37);
+    }
+}
+.fa-bolt.block-blot {
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+        height: 150%;
+        width: 3px;
+        background-color: #858ca3;
+        -webkit-transform: translate(-50%,-50%) rotate(-45deg);
+        transform: translate(-50%,-50%) rotate(-45deg);
+        border: 1px solid #f2f2f5;
+    }
+}

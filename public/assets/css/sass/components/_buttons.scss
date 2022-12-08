@@ -1,0 +1,241 @@
+.btn {
+    padding: 5px 20px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+        @include dir-margin-right(8px);
+    }
+    &.load-over {
+        position: relative;
+        overflow: hidden;
+        position: relative;
+        color: transparent !important;
+        pointer-events: none;
+        * {
+            color: transparent !important;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 2;
+            transform: translate(-50%, -50%);
+            display: block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #fff;
+            border-top-color: transparent !important;
+            border-radius: 50%;
+            // @include dir-margin-right(0.875rem);
+            animation: load-btn-animate 1s infinite forwards linear;
+        }
+    }
+    &.btn-primary:not(:disabled):not(.disabled).active,
+    &.btn-primary {
+        background-color: #4353FF;
+        border-color: #4353FF;
+        color: #fff;
+        font-weight: bold;
+        &:not(:disabled):not(.disabled):focus, &:not(:disabled):not(.disabled):active {
+            background-color: #3643d3;
+            border-color: #3643d3;
+            box-shadow: 0 0 0 0.2rem rgba(67, 83, 255, 0.555);
+        }
+        &:hover, &:active {
+            color: #fff;
+        }
+    }
+
+    &.btn-primary-light:not(:disabled):not(.disabled).active,
+    &.btn-primary-light {
+        background-color: #f6f8fe;
+        border-color: #f6f8fe;
+        color: #4353FF;
+        font-weight: bold;
+        &:not(:disabled):not(.disabled):focus, &:not(:disabled):not(.disabled):active {
+            background-color: #f6f8fe;
+            border-color: #f6f8fe;
+            box-shadow: none;
+        }
+        &:hover, &:active {
+            color: #4353FF;
+        }
+    }
+
+    &.btn-empty:not(:disabled):not(.disabled).active,
+    &.btn-empty {
+        font-weight: 500;
+        background-color: transparent;
+        color: #858CA3;
+        &:hover, &:active {
+            color: #000;
+        }
+        &.load-over::after {
+            border-color: #858CA3;
+        }
+    }
+
+    &.btn-empty-border:not(:disabled):not(.disabled).active,
+    &.btn-empty-border {
+        font-weight: 500;
+        background-color: transparent;
+        color: #858CA3;
+        border: 1px solid #dbdbe6;
+        &:hover, &:active {
+            color: #000;
+        }
+        &.load-over::after {
+            border-color: #858CA3;
+        }
+    }
+    
+    &.btn-danger:not(:disabled):not(.disabled).active,
+    &.btn-danger {
+        font-weight: 500;
+        background-color: transparent;
+        color: #BD2C1C;
+        border: 1px solid #CFD7E0;
+        &:hover, &:active {
+            color: #BD2C1C;
+        }
+        &.load-over::after {
+            border-color: #BD2C1C;
+        }
+    }
+
+    &.btn-danger-dark:not(:disabled):not(.disabled).active,
+    &.btn-danger-dark {
+        font-weight: 700;
+        background-color: #ED0000;
+        color: #fff;
+        border: 0;
+        &:hover, &:active {
+            color: #fff;
+        }
+    }
+
+    &.btn-gray:not(:disabled):not(.disabled).active,
+    &.btn-gray {
+        font-weight: 700;
+        background-color: #EAEAEA;
+        color: #0C1B48;
+        border: 0;
+        &:hover, &:active {
+            color: #0C1B48;
+        }
+        &.load-over::after {
+            border-color: #0C1B48;
+        }
+    }
+
+    &.btn-success:not(:disabled):not(.disabled).active,
+    &.btn-success {
+        background-color: #098468;
+        border-color: #098468;
+        color: #fff;
+        font-weight: bold;
+        &:not(:disabled):not(.disabled):focus, &:not(:disabled):not(.disabled):active {
+            background-color: #086e57;
+            border-color: #086e57;
+            box-shadow: 0 0 0 0.2rem rgba(98, 188, 101, 0.5);
+        }
+        &:hover, &:active {
+            background-color: #086e57;
+            border-color: #086e57;
+            color: #fff;
+        }
+        &.disabled {
+            opacity: 1;
+            background-color: #DBDBE6;
+            border-color: #DBDBE6;
+            box-shadow: none !important;
+            color: #858CA3;
+        }
+    }
+
+    &.btn-primary-dark:not(:disabled):not(.disabled).active,
+    &.btn-primary-dark {
+        background-color: #0C1B48;
+        border-color: #0C1B48;
+        color: #fff;
+        font-weight: bold;
+        &:not(:disabled):not(.disabled):focus, &:not(:disabled):not(.disabled):active {
+            background-color: #0C1B48;
+            border-color: #0C1B48;
+            box-shadow: none;
+        }
+        &:hover, &:active {
+            color: #fff;
+        }
+    }
+
+    &.custom-mb {
+        margin-bottom: 35px;
+        @media (max-width: $screen-xxs) {
+          margin-bottom: 25px;
+        }
+    }
+
+    &.btn-sm {
+        padding: 12px;
+        font-size: 14px;
+        line-height: 19px;
+    }
+    &.btn-xs {
+        padding: 10px 15px;
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 500;
+        height: auto;
+    }
+}
+
+// loading button keyframe
+@keyframes load-btn-animate {
+    0% {
+      transform: translate(-50%, -50%) rotate(0);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.btn-link {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+    color: #4353ff !important;
+    text-decoration: none !important;
+
+    i {
+        font-size: 15px;
+        @include dir-margin-right(5px);
+    }
+}
+
+.text-end {
+    text-align: end;
+}
+
+.link-btn {
+    padding: 9px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: bold;
+    i {
+        @include dir-margin-left(8px);
+    }
+
+    &.success {
+        color: #56ac68;
+        background-color: rgba(86, 172, 105, 0.05);
+    }
+}

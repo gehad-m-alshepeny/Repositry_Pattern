@@ -1,0 +1,18 @@
+.empty-area {
+    padding-top: 50px;
+    text-align: center;
+    width: 595px;
+    max-width: 100%;
+    margin: auto;
+    .img {
+        max-width: 92px;
+        max-height: 92px;
+        margin-bottom: 57px;     
+    }
+    .desc {
+        font-size: 16px;
+        text-align: center;
+        color: #858ca3;
+        margin-bottom: 34px;
+    }
+}
