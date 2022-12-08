@@ -10,7 +10,6 @@ use App\Http\Resources\CategoryResource;
 class CategoryRepository implements CRUDRepository
 {
 
-
     public function all(Request $request)   
     {   
         $result =  new Category;
@@ -31,13 +30,16 @@ class CategoryRepository implements CRUDRepository
             ]);  
       return $data;
     }
+
     public function store(Request $request)
     {
         $validated = $request->safe()->only(['paren_name', 'name']);
         Category::create($validated);
         return response()->json(["status" => "success"], 200);
     }
-
+    public function update(Request $request, $Category)
+    {
+    }
 
     public function destroy(Request $request)
     {
@@ -45,41 +47,5 @@ class CategoryRepository implements CRUDRepository
         return response()->json(['status' => 'success'], 200);
     }
   
- /*   public function getTasksById($id)
-    {
-       return Task::select('id','name','description','status')->whereId($id)->first();
-    }
-
-    
-
-
-    public function setAsFinish($id)
-    {
-        $task = Task::whereId($id)->first();
-        if ($task != null){
-            $task->status = true;
-            $task->save();
-            return $task;
-        }
-        return null;
-    }
-
-    public function updateTask(Request $request, $id)
-    {
-        $task = Task::whereId($id)->first();
-        if ($task != null) {
-            $task->update([
-                'name' => $request->name,
-                'description' => $request->description,
-            ]);
-            return $task;
-        }
-        return null;
-    }
-
-    public function getTaskWithComments($id){
-        return Task::select('id','name','description','status')
-            ->whereId($id)
-            ->with('comments')->first();
-    }*/
+ 
 }

@@ -6,21 +6,26 @@
         <div class="page-head">
             <a href="{{ route('products.index') }}" class="back">Products</a>
             <p class="title">
-               Add Product
+            {{ (isset($product)) ? 'Edit' : 'Add' }} Product
             </p>
            
             <div class="btns"> </div>
         </div>
         <div class="with-live-preview">
-                 
-                 <form id="productForm" action="{{route('products.store')}}" method="POST" class="form-container">
+             
+                 @if (isset($product))
+                      <form id="productForm" action="{{route('products.update', $product)}}" method="POST" class="form-container">
+    
+                    @else
+                    <form id="productForm" action="{{route('products.store')}}" method="POST" class="form-container">
+                    @endif
                      @csrf
                  <div class="row">
                      <div class="col-12 col-sm-6">
                      <div  id="image" class="form-group">
                          <div class="dropzone single-uploader" id="productImage">
                              <div class="dz-default dz-message">
-                                 <img src="{{ asset('assets/img/vendors/img-placehollder.png') }}" alt="">
+                                 <img src="{{ @$product ? $image : asset('assets/img/vendors/img-placehollder.png') }}" alt="">
                                  <p class="hint">
                                  </p>
                              </div>
@@ -41,13 +46,13 @@
                      
                          <div id="name" class="form-group">
                              <label class="control-label required"> Product Name</label>
-                             <input type="text" class="form-control" name="name" placeholder="">
+                             <input type="text" class="form-control" name="name" value="{{ @$product ? $product->name : '' }}" placeholder="">
                          </div>
                          <div id="category_id" class="form-group">
                         <label class="control-label required">Category</label>
                         <select name="category_id" class="form-control">
                         @foreach ($categories as $id => $name)
-                            <option value="{{$id}}">{{$name}}</option>
+                            <option value="{{$id}}" {{ in_array(@$product->category_id, $categories) ? 'checked' : '' }}>{{$name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -61,14 +66,14 @@
                     <label class="control-label">
                   Tags
                     </label>
-                    <input type="text" name="tags" class="form-control" placeholder="">
+                    <input type="text" name="tags" value="{{ @$product ? $product->tags : '' }}" class="form-control" placeholder="">
                 </div>
 
                  <div id="description" class="form-group">
                      <label class="control-label">
                      Description
                      </label>
-                     <textarea name="description" class="form-control" placeholder=""></textarea>
+                     <textarea name="description" class="form-control" placeholder="">{{ @$product ? $product->description : '' }}</textarea>
                  </div>
 
 

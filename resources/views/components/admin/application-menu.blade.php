@@ -20,13 +20,13 @@
         <ul class="links">
             <li>
                 <a href="{{ route('home') }}" class="link">
-                    <i class="far fa-lightbulb"></i>
+                    <i class="fas fa-home"></i>
                     <span>Home</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('products.index') }}" class="link">
-                    <i class="fas fa-home"></i>
+                    <i class="fas fa-list"></i>
                     <span>Products</span>
                 </a>
             </li>

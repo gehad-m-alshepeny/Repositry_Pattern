@@ -69,7 +69,7 @@ var pluginObject = {
         {
             targets: 4,
             render: function (data, type, full, meta) {
-                return `<a  class="fa fa-edit" data-name="${full.name}" href="category/edit/${full.id}"></a>
+                return `<a  class="fa fa-edit" data-name="${full.name}" href="products/edit/${full.id}"></a>
                 <a id="deleteBTN"  class="fa fa-trash" data-id="${full.id}" href="products/destroy"></a>`;
             },
         },
@@ -85,7 +85,7 @@ $(function () {
 
     /*============================================================================*/
 
-    function handelItemAction(event) {
+    function handelProductAction(event) {
         
         event.preventDefault();
       
@@ -123,7 +123,7 @@ $(function () {
 
     }
 
-    $(document).on("click", "#productButton", handelItemAction);
+    $(document).on("click", "#productButton", handelProductAction);
    
 
     /*============================================================================*/

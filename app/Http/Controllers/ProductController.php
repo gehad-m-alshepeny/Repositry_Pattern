@@ -9,6 +9,7 @@ use App\Repository\Product\ProductRepository;
 use App\Http\Resources\ProductResource;
 use App\Utils\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -65,19 +66,22 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $categories = Category::pluck("name", "id")->toArray();
+        $image =str_replace("public","/storage",$product->image);
+
+        return view("products.form", \compact('categories','product','image'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateProductRequest  $request
+     * @param  \App\Http\Requests\ProductRequest  $request
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(ProductRequest $request, Product $product)
     {
-        //
+        return $this->productRepository->update($request,$product);
     }
 
     /**

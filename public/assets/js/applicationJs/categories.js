@@ -1,5 +1,6 @@
 "use strict";
 var  categoriesTable = "";
+
 /*==================================================================== */
 var pluginObject = {
     tableId: "#categoriesTable",
@@ -45,8 +46,7 @@ var pluginObject = {
         {
             targets: 3,
             render: function (data, type, full, meta) {
-                return `<a  class="fa fa-edit" data-name="${full.name}" href="category/edit/${full.id}"></a>
-                <a id="deleteBTN"  class="fa fa-trash" data-id="${full.id}" href="categories/destroy"></a>`;
+                return ` <a id="deleteBTN"  class="fa fa-trash" data-id="${full.id}" href="categories/destroy"></a>`;
             },
         },
     ],
@@ -76,24 +76,6 @@ $(function () {
 
     $(document).on("click", "#createCategoryButton", displayCreateCategory);
 
-    /*============================================================================*/
-
-    function displayEditCategory(event) {
-
-        event.preventDefault();
-
-        $("#categoryModal").modal("show");
-
-        var request = $.ajax({
-            url: $(this).attr("href"),
-            type: "GET",
-        });
-
-        request.done((response) => {
-            $(".modal-body").html(response);
-        });
-    }
-    $(document).on("click", ".editCategory", displayEditCategory);
     /*============================================================================*/
     function handelCategoryAction(event) {
 

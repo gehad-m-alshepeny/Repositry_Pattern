@@ -6,10 +6,10 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Repository\CRUDRepository;
 use App\Http\Resources\ProductResource;
+use Illuminate\Support\Facades\Storage;
 
 class ProductRepository implements CRUDRepository
 {
-
 
     public function all(Request $request)
     {   
@@ -44,6 +44,24 @@ class ProductRepository implements CRUDRepository
         Product::create($validated);
         return response()->json(["status" => "success", "data" => ["redirectTo" => route("products.index")]], 200);
     }
+
+    public function update(Request $request, $product)
+    {
+        $validated = $request->safe()->only(['name','tags','description']);
+        if ($request->has("productImage")) 
+        {
+            if (!is_null($product->image) && Storage::exists($product->image)) {
+                Storage::delete($product->image);
+            }
+
+            $productImage = $request->file("productImage")->store("public/products/");
+            $validated['image'] = $productImage;
+        }
+        $validated['category_id']=$request->category_id;
+      
+        $product = $product->update($validated);
+        return response()->json(["status" => "success", "data" => ["redirectTo" => route("products.index")]], 200);
+    }
        
 
     public function destroy(Request $request)
@@ -52,48 +70,4 @@ class ProductRepository implements CRUDRepository
         return response()->json(['status' => 'success'], 200);
     }
 
- /*   public function getTasksById($id)
-    {
-       return Task::select('id','name','description','status')->whereId($id)->first();
-    }
-
-    public function createTask(Request $request)
-    {
-        $task = new Task;
-        $task->name = $request->name;
-        $task->description = $request->description;
-        $task->save();
-        return $task;
-    }
-
-
-    public function setAsFinish($id)
-    {
-        $task = Task::whereId($id)->first();
-        if ($task != null){
-            $task->status = true;
-            $task->save();
-            return $task;
-        }
-        return null;
-    }
-
-    public function updateTask(Request $request, $id)
-    {
-        $task = Task::whereId($id)->first();
-        if ($task != null) {
-            $task->update([
-                'name' => $request->name,
-                'description' => $request->description,
-            ]);
-            return $task;
-        }
-        return null;
-    }
-
-    public function getTaskWithComments($id){
-        return Task::select('id','name','description','status')
-            ->whereId($id)
-            ->with('comments')->first();
-    }*/
 }

@@ -10,7 +10,6 @@
                  Add Product
                 </a>
             </div>
-
         </div>
         <table id="productsTable" class="table" style="width:100%">
             <thead>
@@ -30,8 +29,6 @@
             </thead>
             <tbody></tbody>
         </table>
-       
-       
     </div>
 
 @endsection
